@@ -31,7 +31,7 @@ public class SkillController {
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
         model.addAttribute("skill", new Skill());
-
+        model.addAttribute("skills", skillRepository.findAll());
         return "skills/add";
     }
 
@@ -40,7 +40,7 @@ public class SkillController {
                                     Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            //model.addAttribute() <--- same code as line26 MAYBE
+
             return "sills/add";
         }
 
